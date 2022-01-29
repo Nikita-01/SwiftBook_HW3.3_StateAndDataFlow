@@ -22,7 +22,25 @@ struct ContentView: View {
             Spacer()
             ButtonView(timer: timer)
             Spacer()
+            Button(action: deleteUser) {
+                Text("LogOut")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+            }
+            .frame(width: 200, height: 60)
+            .background(Color.blue)
+            .cornerRadius(20)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.black, lineWidth: 4)
+            )
+            Spacer()
         }
+    }
+    private func deleteUser() {
+        userManager.name = ""
+        userManager.isRegister.toggle()
     }
 }
 
